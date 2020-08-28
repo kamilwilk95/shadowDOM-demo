@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow DOM Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <div>
+            <h1>Open Shadow DOM</h1>
+            <div class="buttons-wraper">
+                <button class="append-open-btn">Append</button>
+            </div>
+            <div class="shadow-open-host"></div>
+        </div>
+        <div>
+            <h1>Close Shadow DOM</h1>
+            <div class="buttons-wraper">
+                <button class="append-close-btn">Append</button>
+            </div>
+            <div class="shadow-close-host"></div>
+        </div>
+    </section>
+
+    <script src="./close-shadow-dom.js"></script>
+    <script src="./open-shadow-dom.js"></script>
+
+    <script>
+        document.querySelector('.append-open-btn').addEventListener('click', () => {
+            const newElement = document.createElement('div');
+            document.querySelector('.shadow-open-host').shadowRoot.append(newElement);
+        });
+
+
+        document.querySelector('.append-close-btn').addEventListener('click', () => {
+            const newElement = document.createElement('div');
+            const shadowRoot = document.querySelector('.shadow-close-host').shadowRoot;
+            console.log(shadowRoot)
+            if (!shadowRoot) {
+                alert(`Can't find Shadow DOM`);
+            } else {
+                shadowRoot.append(newElement);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+section {
+    display: flex;
+}
+
+section h1 {
+    text-align: center;
+}
+
+section > div {
+    flex-basis: 50%;
+}
+
+.inside-shadow {
+    width: 200px;
+    height: 200px;
+    background: green;
+}
